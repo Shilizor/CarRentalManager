@@ -72,6 +72,24 @@
 
             <Rectangle Grid.Row="1" Fill="#2B2D31"/>
 
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 25 0">
+                <TextBlock Text="Регистрация"
+                           FontSize="32" 
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Foreground="#d9d9d9"
+                           FontFamily="Roboto"
+                           FontWeight="Bold"
+                           Margin="0 0 25 0"/>
+                <Button Background="Transparent"
+                        BorderThickness="0"
+                        Command="{Binding CloseWindows}">
+                    <Image Source="/Assets/Images/Icons/Main/shutdown_1.png" Width="40" Height="40" />
+                </Button>
+            </StackPanel>
+
+            <Rectangle Grid.Row="1" Fill="#2B2D31"/>
+
             <StackPanel Grid.Row="2" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" >
                 <Grid Margin="0 0 0 20" Background="#1E1F22" Width="380" Height="50">
                     <Grid.ToolTip>
@@ -98,7 +116,7 @@
                     <Grid.ToolTip>
                         <TextBlock>Электронная почта пользователя</TextBlock>
                     </Grid.ToolTip>
-                    <TextBox Text="{Binding UserLogin}" 
+                    <TextBox Text="{Binding UserEmail}" 
                              CaretBrush="#d9d9d9"
                              Foreground="#d9d9d9"
                              BorderThickness="0"
@@ -119,7 +137,7 @@
                     <Grid.ToolTip>
                         <TextBlock>Пароль пользователя</TextBlock>
                     </Grid.ToolTip>
-                    <TextBox Text="{Binding UserLogin}" 
+                    <TextBox Text="{Binding UserPassword}" 
                              CaretBrush="#d9d9d9"
                              Foreground="#d9d9d9"
                              BorderThickness="0"
@@ -136,11 +154,11 @@
                              Padding="5"/>
                     <Image Source="/Assets/Images/Icons/Auth Reg/lock.png" Width="30" Height="30" HorizontalAlignment="Right" Margin="5"/>
                 </Grid>
-                <Grid Margin="0 0 0 20" Background="#1E1F22" Width="380" Height="50">
+                <Grid Margin="0 0 0 10" Background="#1E1F22" Width="380" Height="50">
                     <Grid.ToolTip>
                         <TextBlock>Повтор пароля</TextBlock>
                     </Grid.ToolTip>
-                    <TextBox Text="{Binding UserLogin}" 
+                    <TextBox Text="{Binding UserPasswordReward}" 
                              CaretBrush="#d9d9d9"
                              Foreground="#d9d9d9"
                              BorderThickness="0"
@@ -157,6 +175,10 @@
                              Padding="5"/>
                     <Image Source="/Assets/Images/Icons/Auth Reg/lock.png" Width="30" Height="30" HorizontalAlignment="Right" Margin="5" />
                 </Grid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Content="Назад" BorderThickness="0" Background="#1E1F22" Foreground="#d9d9d9" FontSize="22" FontFamily="Roboto" FontWeight="Bold" HorizontalAlignment="Right" Width="100" Height="40" Margin="0 0 15 0"/>
+                    <Button Content="Готово" Command="{Binding checkcmd}" BorderThickness="0" Background="#1E1F22" Foreground="#d9d9d9" FontSize="22" FontFamily="Roboto" FontWeight="Bold" HorizontalAlignment="Right" Width="100" Height="40"/>
+                </StackPanel>
             </StackPanel>
 
             <Grid.RowDefinitions>
