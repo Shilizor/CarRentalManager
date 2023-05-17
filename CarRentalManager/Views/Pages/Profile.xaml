@@ -9,6 +9,6 @@
       Title="Profile">
 
     <Grid>
-        
+        <Border Background="#d9d9d9" />
     </Grid>
 </Page>

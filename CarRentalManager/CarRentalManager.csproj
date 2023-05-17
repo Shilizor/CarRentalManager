@@ -8,16 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Styles\**" />
     <Compile Remove="Utilities\**" />
     <Compile Remove="View\**" />
-    <EmbeddedResource Remove="Styles\**" />
     <EmbeddedResource Remove="Utilities\**" />
     <EmbeddedResource Remove="View\**" />
-    <None Remove="Styles\**" />
     <None Remove="Utilities\**" />
     <None Remove="View\**" />
-    <Page Remove="Styles\**" />
     <Page Remove="Utilities\**" />
     <Page Remove="View\**" />
   </ItemGroup>
@@ -39,7 +35,6 @@
 
   <ItemGroup>
     <Folder Include="Model\" />
-    <Folder Include="ViewModel\" />
   </ItemGroup>
 
   <ItemGroup>

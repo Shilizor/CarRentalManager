@@ -5,6 +5,15 @@
              StartupUri="Views/MainAuth.xaml"
              ShutdownMode="OnExplicitShutdown">
     <Application.Resources>
-         
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary Source="Styles/closeBtnStyle.xaml" />
+                <ResourceDictionary Source="Styles/BtnStyle.xaml" />
+
+            </ResourceDictionary.MergedDictionaries>
+
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
