@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using CarRentalManager.Model;
+using CarRentalManager.ViewModel;
 
 namespace CarRentalManager.Views
 {
@@ -22,6 +24,13 @@ namespace CarRentalManager.Views
         public MainAuth()
         {
             InitializeComponent();
+            IWindowService service = new WindowService();
+            DataContext = new MainAuthVM(service);
+        }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
         }
     }
 }

@@ -8,27 +8,53 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Assets\**" />
     <Compile Remove="Styles\**" />
     <Compile Remove="Utilities\**" />
     <Compile Remove="View\**" />
-    <EmbeddedResource Remove="Assets\**" />
     <EmbeddedResource Remove="Styles\**" />
     <EmbeddedResource Remove="Utilities\**" />
     <EmbeddedResource Remove="View\**" />
-    <None Remove="Assets\**" />
     <None Remove="Styles\**" />
     <None Remove="Utilities\**" />
     <None Remove="View\**" />
-    <Page Remove="Assets\**" />
     <Page Remove="Styles\**" />
     <Page Remove="Utilities\**" />
     <Page Remove="View\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Images\Icons\Auth Reg\email.png" />
+    <None Remove="Assets\Images\Icons\Auth Reg\lock.png" />
+    <None Remove="Assets\Images\Icons\Auth Reg\user.png" />
+    <None Remove="Assets\Images\Icons\bg\bg_icon_1.png" />
+    <None Remove="Assets\Images\Icons\bg\bg_icon_2.png" />
+    <None Remove="Assets\Images\Icons\Main\Admin settings.png" />
+    <None Remove="Assets\Images\Icons\Main\car rental.png" />
+    <None Remove="Assets\Images\Icons\Main\icon_logo.png" />
+    <None Remove="Assets\Images\Icons\Main\Profile.png" />
+    <None Remove="Assets\Images\Icons\Main\settings.png" />
+    <None Remove="Assets\Images\Icons\Main\shutdown_1.png" />
+    <None Remove="Assets\Images\Icons\Main\shutdown_2.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Model\" />
     <Folder Include="ViewModel\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Images\Icons\Auth Reg\email.png" />
+    <Resource Include="Assets\Images\Icons\Auth Reg\lock.png" />
+    <Resource Include="Assets\Images\Icons\Auth Reg\user.png" />
+    <Resource Include="Assets\Images\Icons\bg\bg_icon_1.png" />
+    <Resource Include="Assets\Images\Icons\bg\bg_icon_2.png" />
+    <Resource Include="Assets\Images\Icons\Main\Admin settings.png" />
+    <Resource Include="Assets\Images\Icons\Main\car rental.png" />
+    <Resource Include="Assets\Images\Icons\Main\icon_logo.png" />
+    <Resource Include="Assets\Images\Icons\Main\Profile.png" />
+    <Resource Include="Assets\Images\Icons\Main\settings.png" />
+    <Resource Include="Assets\Images\Icons\Main\shutdown_1.png" />
+    <Resource Include="Assets\Images\Icons\Main\shutdown_2.png" />
   </ItemGroup>
 
 </Project>

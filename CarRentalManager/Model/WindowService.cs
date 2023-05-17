@@ -23,8 +23,10 @@ namespace CarRentalManager.Model
             }
         }
 
-        public void ShowWindow()
+        public void ShowRegWindow()
         {
+            var window = new MainReg();
+            window.Show();
         }
     }
 }
