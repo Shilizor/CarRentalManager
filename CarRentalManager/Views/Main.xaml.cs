@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CarRentalManager.Model;
+using CarRentalManager.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +24,13 @@ namespace CarRentalManager.Views
         public Main()
         {
             InitializeComponent();
+            IWindowService service = new WindowService();
+            DataContext = new MainVM(service);
+        }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
         }
     }
 }

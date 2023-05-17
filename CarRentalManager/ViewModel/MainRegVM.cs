@@ -19,7 +19,13 @@ namespace CarRentalManager.ViewModel
 
         IWindowService _windowService;
         public ICommand CloseWindows { get; set; }
+        public ICommand ShowAuthWindowCmd { get; set; }
         public ICommand checkcmd { get; set; }
+
+        private void ShowAuthWindow()
+        {
+            _windowService.ShowAuthWindow();
+        }
 
         private void check()
         {
@@ -44,6 +50,9 @@ namespace CarRentalManager.ViewModel
                 return;
             }
             MessageBox.Show($"Ваш Логин: {UserLogin}\nВаш пароль: {UserPassword}\nВаш Email: {UserEmail}");
+            var window = Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
+            window.Close();
+            _windowService.ShowMainWindow();
         }
         private void CloseWindow()
         {
@@ -54,6 +63,7 @@ namespace CarRentalManager.ViewModel
             _windowService = service;
 
             CloseWindows = new RelayCommand(obj => CloseWindow());
+            ShowAuthWindowCmd = new RelayCommand(obj => ShowAuthWindow());
             checkcmd = new RelayCommand(obj => check());
         }
     }

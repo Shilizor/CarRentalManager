@@ -20,12 +20,24 @@ namespace CarRentalManager.Model
             if (window != null)
             {
                 window.Close();
+                Application.Current.Shutdown();
             }
         }
 
         public void ShowRegWindow()
         {
             var window = new MainReg();
+            window.Show();
+        }
+        public void ShowAuthWindow()
+        {
+            var window = new MainAuth();
+            window.Show();
+        }
+
+        public void ShowMainWindow()
+        {
+            var window = new Main();
             window.Show();
         }
     }

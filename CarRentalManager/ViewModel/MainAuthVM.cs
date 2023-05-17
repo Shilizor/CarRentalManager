@@ -17,12 +17,16 @@ namespace CarRentalManager.ViewModel
 
         public ICommand CloseWindows { get; set; }
         public ICommand OpenRegWindowCmd { get; set; }
+        public ICommand OpenMainWindowCmd { get; set; }
 
         private void OpenRegWindow()
         {
             _windowService.ShowRegWindow();
         }
-
+        private void OpenMainWindow()
+        {
+            _windowService.ShowMainWindow();
+        }
         private void CloseWindow()
         {
             _windowService.CloseWindow();
@@ -33,6 +37,7 @@ namespace CarRentalManager.ViewModel
             _windowService = service;
 
             CloseWindows = new RelayCommand(obj => CloseWindow());
+            OpenMainWindowCmd = new RelayCommand(obj => OpenMainWindow());
             OpenRegWindowCmd = new RelayCommand(obj => OpenRegWindow());
 
             UserLogin = "Login";

@@ -9,6 +9,8 @@ namespace CarRentalManager.Model
     public interface IWindowService
     {
         void ShowRegWindow();
+        void ShowAuthWindow();
+        void ShowMainWindow();
         void CloseWindow();
     }
 }
