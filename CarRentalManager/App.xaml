@@ -11,6 +11,7 @@
 
                 <ResourceDictionary Source="Styles/closeBtnStyle.xaml" />
                 <ResourceDictionary Source="Styles/BtnStyle.xaml" />
+                <ResourceDictionary Source="Styles/Main.xaml" />
 
             </ResourceDictionary.MergedDictionaries>
 

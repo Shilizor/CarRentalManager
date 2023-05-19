@@ -1,4 +1,6 @@
 ﻿using CarRentalManager.Model;
+using CarRentalManager.Model.DataManager.DataModel;
+using CarRentalManager.Model.DataManager;
 using CarRentalManager.Utillites;
 using System;
 using System.Collections.Generic;
@@ -52,6 +54,15 @@ namespace CarRentalManager.ViewModel
             MessageBox.Show($"Ваш Логин: {UserLogin}\nВаш пароль: {UserPassword}\nВаш Email: {UserEmail}");
             var window = Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
             window.Close();
+
+            var user = new User
+            {
+                Login = UserLogin,
+                Password = UserPassword,
+                Email = UserEmail
+            };
+
+            DBMethods.AddUser(user);
             _windowService.ShowMainWindow();
         }
         private void CloseWindow()

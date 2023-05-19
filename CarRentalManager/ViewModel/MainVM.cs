@@ -10,6 +10,8 @@ using System.Windows;
 using System.Windows.Input;
 using System.Threading;
 using System.ComponentModel;
+using CarRentalManager.Model.DataManager.DataModel;
+using CarRentalManager.Model.DataManager;
 
 namespace CarRentalManager.ViewModel
 {
