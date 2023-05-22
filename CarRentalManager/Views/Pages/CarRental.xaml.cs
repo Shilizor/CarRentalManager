@@ -12,17 +12,23 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CarRentalManager.ViewModel;
 
 namespace CarRentalManager.Views.Pages
 {
     /// <summary>
     /// Логика взаимодействия для CarRental.xaml
     /// </summary>
-    public partial class CarRental : Page
+    public partial class CarRental : UserControl
     {
         public CarRental()
         {
             InitializeComponent();
+            DataContext = new UserControlsVM();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
         }
     }
 }

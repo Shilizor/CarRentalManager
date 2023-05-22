@@ -28,6 +28,7 @@
     <None Remove="Assets\Images\Icons\Main\car rental.png" />
     <None Remove="Assets\Images\Icons\Main\icon_logo.png" />
     <None Remove="Assets\Images\Icons\Main\Profile.png" />
+    <None Remove="Assets\Images\Icons\Main\Search.png" />
     <None Remove="Assets\Images\Icons\Main\settings.png" />
     <None Remove="Assets\Images\Icons\Main\shutdown_1.png" />
     <None Remove="Assets\Images\Icons\Main\shutdown_2.png" />
@@ -47,9 +48,25 @@
     <Resource Include="Assets\Images\Icons\Main\car rental.png" />
     <Resource Include="Assets\Images\Icons\Main\icon_logo.png" />
     <Resource Include="Assets\Images\Icons\Main\Profile.png" />
+    <Resource Include="Assets\Images\Icons\Main\Search.png" />
     <Resource Include="Assets\Images\Icons\Main\settings.png" />
     <Resource Include="Assets\Images\Icons\Main\shutdown_1.png" />
     <Resource Include="Assets\Images\Icons\Main\shutdown_2.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
 </Project>

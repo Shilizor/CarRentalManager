@@ -1,21 +1,103 @@
-﻿<Page x:Class="CarRentalManager.Views.Pages.CarRental"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:local="clr-namespace:CarRentalManager.Views.Pages"
-      mc:Ignorable="d"
-      d:DesignHeight="505"
-      d:DesignWidth="830"
-      Title="CarRental">
-
+﻿<UserControl x:Class="CarRentalManager.Views.Pages.CarRental"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CarRentalManager.Views.Pages"
+             mc:Ignorable="d" 
+             d:DesignHeight="505" d:DesignWidth="830">
     <Grid>
-        <Border Background="#d9d9d9"
+        <Border Background="Transparent"
                 CornerRadius="0 0 25 0" />
-        <TextBlock Text="В Разработке"
-                   TextAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="32"
-                   Foreground="#000" />
+        <StackPanel>
+            <StackPanel HorizontalAlignment="Left"
+                        Orientation="Horizontal">
+                <Grid Margin="5"
+                      Background="#2B2D31"
+                      Width="400"
+                      Height="50">
+                    <TextBox Text="{Binding Search, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             Foreground="#d9d9d9"
+                             CaretBrush="#d9d9d9"
+                             BorderThickness="0"
+                             Background="Transparent"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Stretch"
+                             VerticalContentAlignment="Center"
+                             TextAlignment="Justify"
+                             FontSize="20"
+                             FontFamily="Roboto"
+                             FontWeight="Medium"
+                             Width="360"
+                             Height="50"
+                             Padding="5" />
+                    <Image Source="/Assets/Images/Icons/Main/Search.png"
+                           Width="30"
+                           Height="30"
+                           HorizontalAlignment="Right"
+                           Margin="5" />
+                </Grid>
+
+                <Button Content="Арендовать"
+                        Command="{Binding AddOrdercmd, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        BorderThickness="0"
+                        Background="#1E1F22"
+                        Foreground="#d9d9d9"
+                        FontSize="22"
+                        FontFamily="Roboto"
+                        FontWeight="Bold"
+                        HorizontalAlignment="Right"
+                        Width="auto"
+                        Padding="5"
+                        Height="40"
+                        Margin="0 5 10 0"
+                        Click="Button_Click" />
+                <Button Content="Описание"
+                        Command="{Binding }"
+                        BorderThickness="0"
+                        Background="#1E1F22"
+                        Foreground="#d9d9d9"
+                        FontSize="22"
+                        FontFamily="Roboto"
+                        FontWeight="Bold"
+                        HorizontalAlignment="Right"
+                        Width="auto"
+                        Height="40"
+                        Padding="5"
+                        Margin="0 5 0 0" />
+            </StackPanel>
+            <ListView ItemsSource="{Binding AllCars, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                      Foreground="#d9d9d9"
+                      IsSynchronizedWithCurrentItem="True"
+                      Background="Transparent"
+                      BorderThickness="0"
+                      Width="830"
+                      Height="440"
+                      x:Name="list">
+                <ListView.View>
+                    <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle1}">
+                        <GridViewColumn Header="Название"
+                                        Width="85"
+                                        DisplayMemberBinding="{Binding Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                        <GridViewColumn Header="Модель"
+                                        DisplayMemberBinding="{Binding Model, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                        Width="150" />
+                        <GridViewColumn Header="Год выпуска"
+                                        DisplayMemberBinding="{Binding ReleaseData, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                        Width="100" />
+                        <GridViewColumn Header="Тип"
+                                        DisplayMemberBinding="{Binding TypeCarID, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                        Width="100" />
+                        <GridViewColumn Header="Цена"
+                                        DisplayMemberBinding="{Binding CostCar, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                        Width="100" />
+                        <GridViewColumn Header="Гос Номер"
+                                        DisplayMemberBinding="{Binding StateNumber, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                        Width="100" />
+
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
     </Grid>
-</Page>
+</UserControl>

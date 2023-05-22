@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarRentalManager.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +19,12 @@ namespace CarRentalManager.Views.Pages
     /// <summary>
     /// Логика взаимодействия для Administration.xaml
     /// </summary>
-    public partial class Administration : Page
+    public partial class Administration : UserControl
     {
         public Administration()
         {
             InitializeComponent();
+            DataContext = new UserControlsVM();
         }
     }
 }

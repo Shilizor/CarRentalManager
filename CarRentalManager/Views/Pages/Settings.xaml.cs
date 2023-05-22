@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarRentalManager.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +19,12 @@ namespace CarRentalManager.Views.Pages
     /// <summary>
     /// Логика взаимодействия для Settings.xaml
     /// </summary>
-    public partial class Settings : Page
+    public partial class Settings : UserControl
     {
         public Settings()
         {
             InitializeComponent();
+            DataContext = new UserControlsVM();
         }
     }
 }

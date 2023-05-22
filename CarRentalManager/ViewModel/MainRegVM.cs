@@ -51,7 +51,11 @@ namespace CarRentalManager.ViewModel
                 MessageBox.Show("Введенный пароль не совпадает");
                 return;
             }
-            MessageBox.Show($"Ваш Логин: {UserLogin}\nВаш пароль: {UserPassword}\nВаш Email: {UserEmail}");
+            if (DBMethods.IsCorrectLoginEmail(UserLogin, UserEmail) == false)
+            {
+                MessageBox.Show("Данный пользователь с данным логином или Email существует");
+                return;
+            }
             var window = Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
             window.Close();
 
@@ -59,10 +63,13 @@ namespace CarRentalManager.ViewModel
             {
                 Login = UserLogin,
                 Password = UserPassword,
-                Email = UserEmail
+                Email = UserEmail,
+                Address = ""
             };
 
             DBMethods.AddUser(user);
+            Settings.Default.Login = UserLogin;
+            DBMethods.AddBankUser(DBMethods.GetUser(UserLogin).Id);
             _windowService.ShowMainWindow();
         }
         private void CloseWindow()

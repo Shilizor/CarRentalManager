@@ -12,7 +12,12 @@ namespace CarRentalManager.Model.DataManager.DataModel
     {
         public int Id { get; set; }
         public DateTime DataTime { get; set; }
-        public bool status { get; set; }
+        public string status { get; set; } = "Ожидает оплаты";
         public int UserID { get; set; }
+        public int CarID { get; set; }
+        public int CountDay { get; set; }
+
+        public decimal TotalAmount { get; set; }
+
     }
 }

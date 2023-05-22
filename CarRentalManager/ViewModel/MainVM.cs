@@ -12,6 +12,8 @@ using System.Threading;
 using System.ComponentModel;
 using CarRentalManager.Model.DataManager.DataModel;
 using CarRentalManager.Model.DataManager;
+using System.Dynamic;
+using CarRentalManager.Views.Pages;
 
 namespace CarRentalManager.ViewModel
 {
@@ -19,16 +21,18 @@ namespace CarRentalManager.ViewModel
     {
         #region Validates
         private IWindowService _windowService;
-        private Page Profile;
-        private Page CarRental;
-        private Page Administration;
-        private Page Settings;
+        private UserControl Profile;
+        private UserControl CarRental;
+        private UserControl Administration;
+        private UserControl Setting;
         private string pageName;
-        private bool _isAdmin = true;
+        private bool _isAdmin = DBMethods.GetUser(Settings.Default.Login).Status == "Администратор" ? true : false;
+        public string loginUser { get; set; } = DBMethods.GetUser(Settings.Default.Login).Login;
+        public string statusUser { get; set; } = DBMethods.GetUser(Settings.Default.Login).Status;
 
         private Visibility _visibility = Visibility.Visible;
 
-        private Page _currentPage;
+        private UserControl _currentPage;
         private double _frameOpacity;
         #endregion
 
@@ -57,11 +61,13 @@ namespace CarRentalManager.ViewModel
         {
             checkPageName(Administration);
             SlowOpacity(Administration);
+
         }
         private void SettingsMethod(object obj)
         {
-            checkPageName(Settings);
-            SlowOpacity(Settings);
+            checkPageName(Setting);
+            SlowOpacity(Setting);
+
         }
 
 
@@ -93,7 +99,7 @@ namespace CarRentalManager.ViewModel
             }
         }
 
-        public void checkPageName(Page page)
+        public void checkPageName(UserControl page)
         {
             if (CurrentPage != page)
             {
@@ -136,15 +142,16 @@ namespace CarRentalManager.ViewModel
             get
             {
                 return _frameOpacity;
+                OnPropertyChanged("FrameOpacity");
             }
             set
             {
                 _frameOpacity = value;
-                OnPropertyChanged();
+                OnPropertyChanged("FrameOpacity");
             }
         }
 
-        private async void SlowOpacity(Page page)
+        private async void SlowOpacity(UserControl page)
         {
             await Task.Factory.StartNew(() =>
             {
@@ -168,10 +175,10 @@ namespace CarRentalManager.ViewModel
 
 
         // Метод открытие вкладок
-        public Page CurrentPage
+        public UserControl CurrentPage
         {
             get { return _currentPage; }
-            set { _currentPage = value; OnPropertyChanged(); }
+            set { _currentPage = value; OnPropertyChanged("CurrentPage"); }
         }
 
         private void CloseWindow()
@@ -185,7 +192,7 @@ namespace CarRentalManager.ViewModel
             Profile = new CarRentalManager.Views.Pages.Profile();
             CarRental = new CarRentalManager.Views.Pages.CarRental();
             Administration = new CarRentalManager.Views.Pages.Administration();
-            Settings = new CarRentalManager.Views.Pages.Settings();
+            Setting = new CarRentalManager.Views.Pages.Settings();
 
             ProfileCommand = new RelayCommand(ProfileMethod);
             CarRentalCommand = new RelayCommand(CarRentalMethod);

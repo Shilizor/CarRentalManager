@@ -1,6 +1,4 @@
-﻿using CarRentalManager.Model;
-using CarRentalManager.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,19 +12,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CarRentalManager.ViewModel;
 
 namespace CarRentalManager.Views.Pages
 {
     /// <summary>
     /// Логика взаимодействия для Profile.xaml
     /// </summary>
-    public partial class Profile : Page
+    public partial class Profile : UserControl
     {
         public Profile()
         {
             InitializeComponent();
-            IWindowService service = new WindowService();
-            DataContext = new ProfileVM();
+            DataContext = new UserControlsVM();
         }
     }
 }
